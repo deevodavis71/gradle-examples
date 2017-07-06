@@ -17,7 +17,13 @@ task fatJar(type: Jar) {
 }
 
     repositories {
+        maven {
+            url 'http://localhost:18080/artifactory/libs-snapshot'  
+        }
         mavenCentral()
     }
-      
+ 
+ configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}     
 }
